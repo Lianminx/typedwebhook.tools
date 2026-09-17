@@ -46,7 +46,6 @@ export async function handleRequest(request: Request, env: Bindings) {
     const id: string = uuid();
     const token: string = uuid();
     await SESSIONS.put(id, token, { expirationTtl: SessionTtl })
-    await notify("typedwebhook.webhook.created");
     return new Response(JSON.stringify({ id, token, url: `/webhook/${id}` }), {
       status: 200,
       headers: {
@@ -71,7 +70,6 @@ const handleWebhook = async (request: Request, env: Bindings, params: { id: stri
 
   const objId = WEBSOCKETS.idFromName(DurableObjectIdName)
   const stub = WEBSOCKETS.get(objId)
-  await notify("typedwebhook.event.created");
   return await stub.fetch(request)
 }
 

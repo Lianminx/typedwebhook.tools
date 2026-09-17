@@ -15,6 +15,7 @@ const config = {
       allowed: ['PATCH', 'DELETE']
     },
     vite: {
+      ssr: { noExternal: ['highlight.js', 'svelte-highlight'] },
       optimizeDeps: {
         include: ['highlight.js/lib/core']
       }

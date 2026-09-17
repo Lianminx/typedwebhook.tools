@@ -55,7 +55,6 @@ export class WebSocketStore implements DurableObject {
       body,
       ts: new Date().valueOf(),
     }
-    console.log(request.headers)
     server.send(JSON.stringify(message))
   }
 

@@ -1,0 +1,14 @@
+{
+  "name": "lianmin-webhooks",
+  "main": "src/personal.ts",
+  "compatibility_date": "2026-09-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": "dist/public", "binding": "ASSETS" },
+  "kv_namespaces": [
+    { "binding": "SESSIONS", "id": "55414e128aad42cbbd82f307cbc048de" }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "WEBSOCKETS", "class_name": "WebSocketStore" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["WebSocketStore"] }]
+}
